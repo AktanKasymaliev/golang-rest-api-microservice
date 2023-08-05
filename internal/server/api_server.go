@@ -1,6 +1,7 @@
 package server
 
 import (
+	"base/internal/server/api"
 	"errors"
 	"net/http"
 )
@@ -19,6 +20,6 @@ func StartServer() error {
 		Handler:        server.router,
 		// ...
 	}
-	RouteRegister(server.router)
+	api.RouteRegister(server.router)
 	return http_s.ListenAndServe()
 }

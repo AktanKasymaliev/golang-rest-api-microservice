@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"base/src/server"
+	"base/internal/server"
 
 	"github.com/joho/godotenv"
 )
