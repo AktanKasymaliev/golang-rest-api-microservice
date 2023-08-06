@@ -10,7 +10,6 @@ import (
 
 func RouteRegister(router *gin.Engine) {
 	router.GET("/swagger/", ginSwagger.WrapHandler(swaggerfiles.Handler))
-
 	router.GET("/api/v1/ping", endpoints.PingView)
 	router.GET("/api/v1/users", endpoints.UsersView)
 }
