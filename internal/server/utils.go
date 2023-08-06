@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// NewInstanceConfig Initializing
 func NewInstanceConfig() *Config {
 	return &Config {
 		Host: os.Getenv("HOST"),
@@ -15,6 +16,7 @@ func NewInstanceConfig() *Config {
 	}
 }
 
+// NewInstanceServer Initializing
 func NewInstanceServer() *APIServer{
 	return &APIServer{
 			config: NewInstanceConfig(),
@@ -24,6 +26,7 @@ func NewInstanceServer() *APIServer{
 	}
 }
 
+// HealthChecker checks health of the service
 func HealthChecker() string {
 	return "OK"
 }

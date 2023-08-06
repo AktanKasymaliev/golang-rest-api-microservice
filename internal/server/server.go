@@ -6,7 +6,9 @@ import (
 	"net/http"
 )
 
+// StartServer starts the HTTP server.
 func StartServer() error {
+	// Create a new instance of the APIServer.
 	server := NewInstanceServer()
 
 	if server.health() != "OK" {
@@ -15,11 +17,12 @@ func StartServer() error {
 	}
 
 	server.logger.Info("Starting Server")
-	http_s := &http.Server{
+	// Create an HTTP server instance.
+	httpServer := &http.Server{
 		Addr:           server.config.Host + ":" +  server.config.Port,
 		Handler:        server.router,
 		// ...
 	}
 	api.RouteRegister(server.router)
-	return http_s.ListenAndServe()
+	return httpServer.ListenAndServe()
 }

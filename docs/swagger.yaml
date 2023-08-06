@@ -1,0 +1,48 @@
+basePath: /api/v1
+host: localhost:8000
+info:
+  contact:
+    email: akttan04@gmail.com
+    name: Aktan Kasymaliev
+    url: https://t.me/aktankasymaliev
+  description: A rest API service in Go using Gin framework.
+  license:
+    name: GIN 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://tos.santoshk.dev
+  title: Golang REST API
+  version: "1.0"
+paths:
+  /ping:
+    get:
+      consumes:
+      - '*/*'
+      description: Get the status of server.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Show the status of server.
+      tags:
+      - Ping
+  /users/get-all:
+    get:
+      consumes:
+      - '*/*'
+      description: Get the all users.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Show the list of users.
+      tags:
+      - Users
+swagger: "2.0"
