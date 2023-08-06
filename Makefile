@@ -1,6 +1,5 @@
 PACKAGES := $(shell go list ./... | grep -v /vendor/)
 
-
 .PHONY: run
 run:
 	swag init -g cmd/main.go
@@ -15,4 +14,5 @@ build:
 .PHONY: lint
 lint: ## run golint on all Go package
 	@golint $(PACKAGES)
+	@golangci-lint run -E errcheck
 	@echo "Linters done."
