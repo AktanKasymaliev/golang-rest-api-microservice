@@ -3,8 +3,8 @@ package db
 import "base/internal/core"
 
 
-func newDBConfigInstance() *DBConfig {
-	return &DBConfig{
+func newDBConfigInstance() *Config {
+	return &Config{
 		user: core.Getenv("DB_USER", "user"),
 		name: core.Getenv("DB_NAME", "name"),
 		password: core.Getenv("DB_PASSWORD", "password"),
@@ -15,6 +15,7 @@ func newDBConfigInstance() *DBConfig {
 	}
 }
 
+// NewDatabaseInstance instance creator function
 func NewDatabaseInstance() *Database {
 	return &Database{
 		dbConfig: 	newDBConfigInstance(),

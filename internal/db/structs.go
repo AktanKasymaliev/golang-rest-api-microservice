@@ -7,7 +7,8 @@ import (
 	"gorm.io/gorm"
 )
 
-type DBConfig struct {
+// Config config struct
+type Config struct {
 	user 		string
 	name 		string
 	password 	string
@@ -19,7 +20,7 @@ type DBConfig struct {
 	timezone 	string
 }
 
-func (db *DBConfig) makeDSN() string {
+func (db *Config) makeDSN() string {
 	dsn := fmt.Sprintf(
 		"host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s",
 		db.host, db.user, db.password, db.name, db.port, db.sslmode, db.timezone,
@@ -27,12 +28,13 @@ func (db *DBConfig) makeDSN() string {
 	return dsn
 }
 
-
+// Database struct
 type Database struct {
-	dbConfig 	*DBConfig
+	dbConfig 	*Config
 	database	*gorm.DB
 }
 
+// Open let you open the connnection to postgresql
 func (database *Database) Open() error {
 	db, err := gorm.Open(
 		postgres.Open(database.dbConfig.makeDSN()),
