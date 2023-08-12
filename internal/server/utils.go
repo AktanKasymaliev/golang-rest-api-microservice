@@ -1,18 +1,18 @@
 package server
 
 import (
-	"os"
+	"base/internal/core"
 
-	"github.com/sirupsen/logrus"
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 )
 
 // NewInstanceConfig Initializing
 func newInstanceServerConfig() *Config {
 	return &Config {
-		Host: os.Getenv("HOST"),
-		Port: os.Getenv("PORT"),
-		LogLevel: os.Getenv("LOG_LEVEL"),
+		host: core.Getenv("HOST", "localhost"),
+		port: core.Getenv("PORT", "8080"),
+		logLevel: core.Getenv("LOG_LEVEL", "debug"),
 	}
 }
 

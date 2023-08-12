@@ -9,9 +9,9 @@ import (
 
 // Config represents the configuration settings for the server.
 type Config struct {
-	Host 		string		`json:"host" envconfig:"HOST" default:"localhost"`
-	Port 		string		`json:"port" envconfig:"PORT" default:"8000"`
-	LogLevel 	string		`json:"log_level" envconfig:"LOG_LEVEL" default:"debug"`
+	host 		string		`envconfig:"HOST" default:"localhost"`
+	port 		string		`envconfig:"PORT" default:"8000"`
+	logLevel 	string		`envconfig:"LOG_LEVEL" default:"debug"`
 }
 
 // APIServer represents the HTTP server for the API.

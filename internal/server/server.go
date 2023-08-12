@@ -23,7 +23,7 @@ func StartServer() error {
 	server.logger.Info("Starting Server")
 	// Create an HTTP server instance.
 	httpServer := &http.Server{
-		Addr:           server.config.Host + ":" +  server.config.Port,
+		Addr:           server.config.host + ":" +  server.config.port,
 		Handler:        server.router,
 		// ...
 	}
