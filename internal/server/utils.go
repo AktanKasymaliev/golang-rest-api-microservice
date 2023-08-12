@@ -8,7 +8,7 @@ import (
 )
 
 // NewInstanceConfig Initializing
-func NewInstanceConfig() *Config {
+func newInstanceServerConfig() *Config {
 	return &Config {
 		Host: os.Getenv("HOST"),
 		Port: os.Getenv("PORT"),
@@ -19,7 +19,7 @@ func NewInstanceConfig() *Config {
 // NewInstanceServer Initializing
 func NewInstanceServer() *APIServer{
 	return &APIServer{
-			config: NewInstanceConfig(),
+			config: newInstanceServerConfig(),
 			logger: logrus.New(),
 			router: gin.Default(),
 			health: HealthChecker,

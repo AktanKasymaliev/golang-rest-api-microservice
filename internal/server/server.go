@@ -11,6 +11,10 @@ func StartServer() error {
 	// Create a new instance of the APIServer.
 	server := NewInstanceServer()
 
+	if err := server.startDB(); err != nil {
+		server.logger.Fatal("DB connection failure.")
+	}
+
 	if server.health() != "OK" {
 		server.logger.Fatal("Health check failed, maybe config or router is not set")
 		return errors.New("Health check failed, maybe config or router is not set")

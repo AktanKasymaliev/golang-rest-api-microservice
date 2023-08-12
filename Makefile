@@ -2,8 +2,8 @@ PACKAGES := $(shell go list ./... | grep -v /vendor/)
 
 .PHONY: run
 run:
-	swag init -g cmd/main.go
-	go run cmd/main.go 
+	swag init -g cmd/server/main.go
+	go run cmd/server/main.go 
 
 .PHONY: build
 build:
